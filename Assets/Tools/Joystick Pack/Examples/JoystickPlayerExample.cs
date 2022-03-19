@@ -13,14 +13,12 @@ public class JoystickPlayerExample : MonoBehaviour
     private Rigidbody playerRigidbody;
     private Animator playerAnimator;
 
-    private int ironCount = 0;
     private List<GameObject> _materialList = new List<GameObject>();
     private List<GameObject> _ironList = new List<GameObject>();
 
 
     [SerializeField] private Transform _collectedPos = null;
 
-    [SerializeField] private GameObject _ironPrefab = null;
 
     private void Awake()
     {
@@ -65,6 +63,7 @@ public class JoystickPlayerExample : MonoBehaviour
     {
         if (_materialList.Count <= 20)
         {
+            
             _ironList.Add(_materialList[_materialList.Count - 1]);
             _materialList[_materialList.Count - 1].transform.DOMove(_collectedPos.position, 2f);
             _collectedPos.position += new Vector3(0, 0.5f, 0);
